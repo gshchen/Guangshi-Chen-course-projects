@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body {background-image:url(http://pre03.deviantart.net/bd6c/th/pre/i/2014/196/b/1/minimal_new_york_by_kevichan-d61zr27.jpg);}
+</style>
+
+</head>
+<body>
+<h1>Passenger Login</h1>
+
+<form action="/passenger" method="post">
+<table width="300" border="0">
+	<tr>
+		  <th align="left">Passenger ID: </th>
+		  <th align="left"><input type="text" name="pass_id"> </th>
+	</tr>
+ 			<th align="left">Password: </th>
+ 			<th align="left"> <input type="password" name="pass_password"></th>
+	<tr>
+
+	</tr>
+</table>
+
+
+
+<input type="submit" value="Login" />
+</form>
+
+<p>
+{{wrong}}
+</p>
+
+<p>New user? Click <a href="/passenger_register"><button>here</button></a></p>
+<p><a href="/"><button>Return to the previous page</button></a></p>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+  <style type="text/css">
+body {background-image:url(http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900.jpg);}
+</style>
+
+<style type="text/css">
+div#container{width:1100px}
+div#header {}
+div#menu {height:300px;width:600px;float:left;}
+div#content {height:300px;width:500px;float:left;}
+div#footer {clear:both;text-align:center;}
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0;font-size:18px;}
+ul {margin:0;}
+li {list-style:none;}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="header">
+<h1 align = "center">History Record </h1>
+<h1 align = "left"> Driver: {{driver_name}}</h1>
+</div>
+
+<div id="menu">
+<h2 align = "center"> Unfinished Trip</h2>
+</br>
+<table width="600" border="1">
+{% if has_started and state!='D' %}
+Notice: 
+You are recommended to start your trip before [{{start_time}}] in order to arrive your destination on time
+</br>
+{% endif %}
+<tr>
+ <th align="left">Source</th>
+ <th align="left">Destination</th>
+ <th align="left">Available From</th>
+ <th align="left">Arrive at Destination Before</th>
+ <th align="left">Passenger's Name</th>
+ {% if state == 'F' %}
+ <th align="left">Reserved Time</th>
+ {% elif state == 'R' %}
+ <th align="left">Reserved Time</th>
+ {% elif state == 'D' %}
+  <th align="left">Departure Time</th>
+{% endif %}
+
+</tr>
+<tr>
+  <th align="left">{{driver_unfinished_trip[0]}}</th>
+  <th align="left">{{driver_unfinished_trip[1]}} </th>
+  <th align="left">{{driver_unfinished_trip[2]}} </th>
+  <th align="left">{{driver_unfinished_trip[3]}}</th>
+  <th align="left">{{driver_unfinished_trip[4]}} </th>
+  <th align="left">{{driver_unfinished_trip[5]}} </th>
+ </tr>
+ </table>
+</br>
+
+{% if state!='F' %}
+<form action = "/driver_2history" method="post">
+<select name="start_end">
+{% if state=='R' %}
+<option value="S">Start</option>
+{% endif %}
+{% if state=='D' %}
+<option value="E">End</option>
+{% endif %}
+</select>
+<input type="submit" value="Submit" />
+</form> 
+{% endif %}
+
+
+</ul>
+</div>
+
+<div id="content">
+<h2 align = "center"> Finished Trip</h2>
+</br>
+      <ul>
+<table width="400" border="1">
+   <tr>
+  <th align="left">Passenger's Name </th>
+  <th align="left">Reserved Time</th>
+ </tr>
+ <tr>
+        {% for n in driver_finished_list %}
+  <th align="left">{{n[0]}} </th>
+  <th align="left">{{n[1]}} </th>
+  </tr>
+        {% endfor %}
+      </table>
+    </ul>
+
+
+</br>
+</br>
+<div id="footer"><a href="/real_time_msg"><button> Real-Time Message </button> </a> 
+<a href="/driver_Welcome"><button> Return To Welcome Page</button></a> 
+</div>
+
+</div>
+
+</body>
+</html>
+
+

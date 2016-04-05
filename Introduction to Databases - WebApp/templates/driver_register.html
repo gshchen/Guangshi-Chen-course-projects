@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body {background-image:url(http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900.jpg);}
+</style>
+
+</head>
+<body>
+
+<h1 align="center" > Register Page </h1>
+<h2> Please Register below</h2>
+<form action="/driver_register" method="post">
+<p>
+Name: <input type="text" name="driver_name">
+</p>
+
+<p>
+License: <input type="text" name="license">
+</p>
+<p>
+Phone: <input type="text" name="driver_phone">
+Attention: Phone should be 10-digit numbers
+</p>
+<p>
+Brand/Vehicle Type: 
+<select name="brand">
+<option value=1>Ford</option>
+<option value=2>Cadillac</option>
+<option value=3>Jeep</option>
+<option value=4>Lincoln</option>
+<option value=5>Buick</option>
+<option value=6>Corvette</option>
+<option value=7>Chryster</option>
+<option value=8>Chevrolet</option>
+<option value=9>Dodge</option>
+<option value=10>GMC</option>
+</select>
+</p>
+<p>
+Provide Special Service? 
+Yes: <input type="radio" checked="checked" name="special" value='T' />
+No: <input type="radio" name="special" value='F' />
+</p>
+<p>
+Password: <input type="password" name="driver_password">
+</p>
+<input type="submit" value="Register" />
+</form>
+
+<p>
+{{id}}
+</p>
+
+<p><a href="/driver">Return to Login</a></p>
+
+</body>
+
+</html>

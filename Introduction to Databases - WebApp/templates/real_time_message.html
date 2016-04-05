@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body {background-image:url(http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900.jpg);}
+</style>
+
+</head>
+<body>
+
+<h1 align="center" > Real-Time Message Page </h1>
+<h2> Welcome Driver {{driver_name}} !</h2>
+<h3> Send A Real-Time Message </h3>
+
+<form action="/real_time_msg" method="post">
+<table width="400" border="1">
+ 
+<ul>
+<tr>
+  <th align="left">Street Id </th>
+  <th align="left">Street Name </th>
+  <th align="left">Please Choose One </th>
+ </tr>
+<tr>
+{% for n in street_available %}
+
+
+  <th align="left">{{n[0]}} </th>
+  <th align="left">{{n[1]}} </th>
+  <th align="left"><input type="radio" name="street_selected" value={{n[0]}} /> </th>
+
+ </tr>
+
+{% endfor %}
+</ul>
+
+</table>
+</br>
+Input Real Time Message:
+<input type="text" name="message">
+</br>
+<input type="submit" value="Submit" />
+</form>
+
+
+
+<h3> Received Message List </h3>
+<table width="1000" border="1">
+<ul>
+<tr>
+  <th align="left">Sender Name</th>
+  <th align="left">Street Name  </th>
+  <th align="left">Comment  </th>
+  <th align="left">Send Time </th>
+</tr>
+
+<tr>
+{% for n in msg_real_time %}
+  <th align="left">{{n[0]}} </th>
+  <th align="left">{{n[1]}} </th>
+  <th align="left">{{n[2]}} </th>
+  <th align="left">{{n[3]}} </th>
+
+</tr>
+{% endfor %}
+</table>
+</ul>
+<a href="/driver_Welcome">
+<input type="button" value="Return to Welcome Page">
+</a>
+</body>
+
+</html>

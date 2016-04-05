@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style type="text/css">
+p.oblique {font-style:oblique}
+
+</style>
+</head>
+<body>
+
+
+<div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">    
+<img src="https://pixabay.com/static/uploads/photo/2014/09/07/22/34/car-race-438467_960_720.jpg" height="100%" width="100%"/>    
+</div>  
+
+<h1  align = "center"> 
+
+{% if hour <= 12%}
+	Good morning! 
+</br>
+	Welcome to our website!
+{% endif %}
+
+{%	if hour>12 and hour<=18 %}
+	Good afternoon!
+</br> 
+	Welcome to our website!
+{%	endif %}
+
+{%	if hour>18 %}
+	Good night!
+</br>
+	 Welcome to our website!
+{%	endif %}
+
+	 </h1>
+
+<p class="oblique" align = "center">If you are a passenger <a href="/passenger"><button>Click Me</button></a></p>
+<p class="oblique" align = "center">If you are a driver<a href="/driver"><button>Click Me</button></a></p>
+
+
+</body>
+
+</html>

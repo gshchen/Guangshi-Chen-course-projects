@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<style type="text/css">
+body {background-image:url(http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900.jpg);}
+</style>
+
+
+
+<style type="text/css">
+div#container{width:1200px}
+div#header {}
+div#menu {height:300px;width:600px;float:left;}
+div#content {height:300px;width:500px;float:left;}
+div#footer {clear:both;text-align:center;}
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0;font-size:18px;}
+ul {margin:0;}
+li {list-style:none;}
+</style>
+</head>
+
+
+<body>
+<div id="container">
+
+<div id="header">
+<h1 align = "center">History Record </h1>
+<h1 align = "left"> Passenger: {{passenger_name}}</h1>
+</div>
+
+
+
+
+
+<div id="menu">
+<h2 align = "center"> Unfinished Trip</h2>
+</br>
+<table width="500" border="1">
+<tr>
+ <th align="left">Driver Name</th>
+ <th align="left">License</th>
+ <th align="left">Phone</th>
+ <th align="left">Source</th>
+ <th align="left">Destination</th>
+ <th align="left">Reserved Departure Time</th>
+ <th align="left">Fare</th>
+ <th align="left">Minute</th>
+</tr>
+
+<ul>
+    {% for n in passenger_unfinished_list %}
+
+<tr>
+  <th align="left">{{n[0]}}</th>
+  <th align="left">{{n[1]}} </th>
+  <th align="left">{{n[2]}} </th>
+  <th align="left">{{n[3]}}</th>
+  <th align="left">{{n[4]}} </th>
+  <th align="left">{{n[5]}} </th>
+  <th align="left">{{n[6]}} </th>
+  <th align="left">{{n[7]}} </th>
+ </tr>
+ {% endfor %}
+ </table>
+
+     
+
+</ul>
+</br>
+
+
+
+
+
+</ul>
+</div>
+
+<div id="content">
+<h2 align = "center"> Finished Trip</h2>
+</br>
+      <ul>
+<table width="400" border="1">
+   <tr>
+  <th align="left">Driver Name </th>
+  <th align="left">Phone </th>
+  <th align="left">Reserved time</th>
+  <th align="left">Score</th>
+ </tr>
+        {% for n in passenger_finished_list %}
+      </tr>
+  <th align="left">{{n[0]}} </th>
+  <th align="left">{{n[1]}} </th>
+  <th align="left">{{n[2]}} </th>  
+  <th align="left">
+    {% if n[3]>=1 %}
+{{n[3]}}
+    {% else %}
+    <form action="/passenger_2history" method="post">
+<select name="score">
+<option value={{n[4]}},5>5</option>
+<option value={{n[4]}},4>4</option>
+<option value={{n[4]}},3>3</option>
+<option value={{n[4]}},2>2</option>
+<option value={{n[4]}},1>1</option>
+</select>
+<input type="submit" value="Submit" />
+</form>
+    {% endif %}
+  </th>
+
+</tr>
+        {% endfor %}
+         </table>
+          </ul>
+
+
+</br>
+<div id="footer">Enjoy Your Trip 
+<a href="/passenger_page"><button> Return To the Welcome Page</button></a>
+</div>
+
+</div>
+
+</body>
+</html>
+

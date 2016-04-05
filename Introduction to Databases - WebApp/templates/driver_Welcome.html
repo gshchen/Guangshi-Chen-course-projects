@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body {background-image:url(http://blog.hostbaby.com/wp-content/uploads/2014/03/PaintSquares_1400x900.jpg);}
+</style>
+
+</head>
+<body>
+<form action="/driver_history" method="post">
+<h1 align="center" > Welcome Page </h1>
+<h2> Welcome Driver {{driver_name}} !</h2>
+
+Start Time:
+<br />
+<input type="text" name="start_time"><br />
+End Time:
+<br />
+<input type="text" name="end_time">
+<br />
+Start Location: 
+<br/>
+<select name="start_loc">
+<option value=1>Columbia University</option>
+<option value=2>Time Square</option>
+<option value=3>New York University</option>
+<option value=4>Central Park North</option>
+<option value=5>Central Park South</option>
+<option value=6>Central Park East</option>
+<option value=7>Central Park Wes</option>
+<option value=8>Wall Street</option>
+<option value=9>Downtown</option>
+<option value=10>Uptown</option>
+</select>
+<br />
+
+End Location: 
+<br />
+<select name="end_loc">
+<option value=1>Columbia University</option>
+<option value=2>Time Square</option>
+<option value=3>New York University</option>
+<option value=4>Central Park North</option>
+<option value=5>Central Park South</option>
+<option value=6>Central Park East</option>
+<option value=7>Central Park Wes</option>
+<option value=8>Wall Street</option>
+<option value=9>Downtown</option>
+<option value=10>Uptown</option>
+</select>
+<br />
+<input type="submit" value="Submit" />
+</form>
+
+</br>
+<a href="/real_time_msg"><button> Real-Time Message </button> </a><a href="/driver_history"><button> Drive History </button> </a>  
+</br>
+</br>
+<a href="/driver_logout"><button> Log Out </button> </a> 
+
+
+
+<h3> Pay Attention:</h3>
+
+
+  <th align="center">(a)</th>
+  <th align="center">Input Time Format:</th>
+  <th align="center">Year-Month-Day(space)hour:minute, like 2016-04-12 07:28 </th>
+</br>
+</br>
+
+ 	<tr>
+  <th align="center">(b)</th>
+  <th align="center">We also give you some popularity suggestion: </th>
+ </tr>
+
+
+<table width="400" border="1">
+<tr>
+	  <th align="left">Location Name </th>
+	  <th align="left">Popularity </th>
+</tr>
+
+
+{% for n in location %}
+</tr>
+  <th align="left">{{n[0]}} </th>
+  <th align="left">{{n[1]}} </th>
+</tr>
+
+
+{% endfor %}
+</table>
+ </p>
+
+
+</body>
+</html>
